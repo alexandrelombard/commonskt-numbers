@@ -16,11 +16,11 @@
  */
 package org.apache.commonskt.numbers.core
 
-import org.apache.commonskt.math.BigInteger
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
+import org.apache.commonskt.math.BigInteger
 import org.apache.commonskt.math.multiplyExact
 
 /**

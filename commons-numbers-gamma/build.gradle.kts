@@ -10,9 +10,10 @@ repositories {
 }
 
 kotlin {
-    /* Targets configuration omitted. 
-    *  To find out how to configure the targets, please follow the link:
-    *  https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#setting-up-targets */
+    jvm()
+    js()
+    mingwX64()
+    linuxX64()
 
     sourceSets {
         val commonMain by getting {

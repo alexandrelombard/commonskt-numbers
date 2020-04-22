@@ -14,6 +14,8 @@ repositories {
 kotlin {
     jvm()
     js()
+    mingwX64()
+    linuxX64()
 
     sourceSets {
         val commonMain by getting {
