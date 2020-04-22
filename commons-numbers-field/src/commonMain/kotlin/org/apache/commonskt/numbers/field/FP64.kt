@@ -25,8 +25,6 @@ import kotlin.math.pow
  * Wraps a `double` value in order to be used as a field
  * element.
  */
-@ExperimentalUnsignedTypes
-@ExperimentalStdlibApi
 class FP64
 /**
  * @param value Value.

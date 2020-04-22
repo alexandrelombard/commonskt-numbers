@@ -20,7 +20,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-metadata:1.0-SNAPSHOT")
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-metadata:1.0.1")
             }
         }
         val commonTest by getting {
@@ -32,13 +32,23 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-jvm:1.0-SNAPSHOT")
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-jvm:1.0.1")
             }
         }
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-js:1.0-SNAPSHOT")
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-js:1.0.1")
+            }
+        }
+        val mingwX64Main by getting {
+            dependencies {
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-mingwx64:1.0.1")
+            }
+        }
+        val linuxX64Main by getting {
+            dependencies {
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-linuxx64:1.0.1")
             }
         }
     }

@@ -39,6 +39,8 @@ object Primes {
      * @param n Number to test.
      * @return true if `n` is prime. All numbers &lt; 2 return false.
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun isPrime(n: Int): Boolean {
         if (n < 2) {
             return false
@@ -58,6 +60,8 @@ object Primes {
      * @return the smallest prime greater than or equal to `n`.
      * @throws IllegalArgumentException if n &lt; 0.
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun nextPrime(n: Int): Int {
         var n = n
         if (n < 0) {

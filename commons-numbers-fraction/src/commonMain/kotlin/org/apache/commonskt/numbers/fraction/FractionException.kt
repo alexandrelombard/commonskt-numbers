@@ -19,20 +19,13 @@ package org.apache.commonskt.numbers.fraction
 /**
  * Package private exception class with constants for frequently used messages.
  */
-internal class FractionException : ArithmeticException {
-    /**
-     * Create an exception
-     *
-     * @param message  the exception message
-     */
-    constructor(message: String) : super(message)
-
+internal class FractionException
     /**
      * Create an exception with the specified message.
      *
      * @param message  the exception message
      */
-    constructor(message: String?) : super(message) {}
+    (message: String) : ArithmeticException(message) {
 
     companion object {
         /** Error message for overflow during conversion.  */

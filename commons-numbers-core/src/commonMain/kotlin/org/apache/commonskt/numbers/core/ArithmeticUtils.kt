@@ -14,6 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:Suppress("NAME_SHADOWING")
+
 package org.apache.commonskt.numbers.core
 
 import kotlin.math.abs
@@ -28,8 +30,6 @@ import org.apache.commonskt.math.multiplyExact
  * [Math].
  *
  */
-@ExperimentalUnsignedTypes
-@ExperimentalStdlibApi
 object ArithmeticUtils {
     /** Overflow gcd exception message for 2^63.  */
     private const val OVERFLOW_GCD_MESSAGE_2_POWER_63 = "overflow: gcd({0}, {1}) is 2^63"
@@ -67,6 +67,7 @@ object ArithmeticUtils {
      * @throws ArithmeticException if the result cannot be represented as
      * a non-negative `int` value.
      */
+    @ExperimentalStdlibApi
     fun gcd(p: Int, q: Int): Int {
         // Perform the gcd algorithm on negative numbers, so that -2^31 does not
         // need to be handled separately
@@ -218,6 +219,7 @@ object ArithmeticUtils {
      * @throws ArithmeticException if the result cannot be represented as
      * a non-negative `int` value.
      */
+    @ExperimentalStdlibApi
     fun lcm(a: Int, b: Int): Int {
         if (a == 0 || b == 0) {
             return 0
@@ -336,6 +338,8 @@ object ArithmeticUtils {
      * @return k<sup>e</sup>
      * @throws IllegalArgumentException if `e < 0`.
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun pow(k: BigInteger, e: Int): BigInteger {
         if (e < 0) {
             throw IllegalArgumentException(NEGATIVE_EXPONENT_1 + e + NEGATIVE_EXPONENT_2)
@@ -351,6 +355,8 @@ object ArithmeticUtils {
      * @return k<sup>e</sup>
      * @throws IllegalArgumentException if `e < 0`.
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun pow(k: BigInteger, e: Long): BigInteger {
         if (e < 0) {
             throw IllegalArgumentException(NEGATIVE_EXPONENT_1 + e + NEGATIVE_EXPONENT_2)
@@ -376,6 +382,8 @@ object ArithmeticUtils {
      * @return k<sup>e</sup>
      * @throws IllegalArgumentException if `e < 0`.
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun pow(k: BigInteger, e: BigInteger): BigInteger {
         if (e.compareTo(BigInteger.ZERO) < 0) {
             throw IllegalArgumentException(NEGATIVE_EXPONENT_1 + e + NEGATIVE_EXPONENT_2)

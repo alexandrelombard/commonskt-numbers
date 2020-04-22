@@ -28,5 +28,17 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
+        val jvmMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib"))
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-jvm:1.0.1")
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-js:1.0.1")
+            }
+        }
     }
 }

@@ -37,7 +37,6 @@ import kotlin.math.sign
  *
  * [Rational number](https://en.wikipedia.org/wiki/Rational_number)
  */
-@ExperimentalUnsignedTypes
 @ExperimentalStdlibApi
 class Fraction : Number, Comparable<Fraction>, NativeOperators<Fraction> {
     /**
@@ -68,7 +67,6 @@ class Fraction : Number, Comparable<Fraction>, NativeOperators<Fraction> {
      * @param den Denominator.
      * @throws ArithmeticException if the denominator is `zero`.
      */
-    @ExperimentalStdlibApi
     private constructor(num: Int, den: Int) {
         if (den == 0) {
             throw FractionException(FractionException.ERROR_ZERO_DENOMINATOR)
@@ -176,8 +174,8 @@ class Fraction : Number, Comparable<Fraction>, NativeOperators<Fraction> {
         var q0: Long = 0
         var p1 = a0
         var q1: Long = 1
-        var p2: Long = 0
-        var q2: Long = 1
+        var p2: Long
+        var q2: Long
         var n = 0
         var stop = false
         do {
@@ -346,13 +344,13 @@ class Fraction : Number, Comparable<Fraction>, NativeOperators<Fraction> {
      * Adds the specified `value` to this fraction, returning
      * the result in reduced form.
      *
-     * @param value Value to add.
+     * @param a Value to add.
      * @return `this + value`.
      * @throws ArithmeticException if the resulting numerator or denominator
      * cannot be represented in an `int`.
      */
-    override fun add(value: Fraction): Fraction {
-        return addSub(value, true /* add */)
+    override fun add(a: Fraction): Fraction {
+        return addSub(a, true /* add */)
     }
 
     /**
@@ -680,7 +678,6 @@ class Fraction : Number, Comparable<Fraction>, NativeOperators<Fraction> {
     private val isZero: Boolean
         get() = numerator == 0
 
-    @ExperimentalStdlibApi
     companion object {
         /** A fraction representing "0".  */
         val ZERO = Fraction(0)

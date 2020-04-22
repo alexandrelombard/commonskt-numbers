@@ -47,6 +47,8 @@ object Erf {
      *
      * @see RegularizedGamma.P.value
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun value(x: Double): Double {
         if (abs(x) > EXTREME_VALUE_BOUND) {
             return (if (x > 0) 1 else -1).toDouble()

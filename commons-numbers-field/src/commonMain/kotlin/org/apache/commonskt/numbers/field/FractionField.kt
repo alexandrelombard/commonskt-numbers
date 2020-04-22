@@ -22,6 +22,7 @@ import org.apache.commonskt.numbers.fraction.Fraction
 /**
  * [Fraction] field.
  */
+@ExperimentalStdlibApi
 class FractionField
 /** Singleton.  */
 private constructor() : AbstractField<Fraction>() {

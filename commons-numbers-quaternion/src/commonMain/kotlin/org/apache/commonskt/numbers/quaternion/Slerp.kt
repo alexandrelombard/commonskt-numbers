@@ -19,6 +19,12 @@ package org.apache.commonskt.numbers.quaternion
 import kotlin.math.acos
 import kotlin.math.sin
 
+// This function interface is used as JS doesn't allow a class to inherit
+// a function
+interface DoubleFunction<F> {
+    fun invoke(d: Double): F
+}
+
 /**
  * Perform spherical linear interpolation ([Slerp](https://en.wikipedia.org/wiki/Slerp)).
  *
@@ -28,16 +34,15 @@ import kotlin.math.sin
  * quaternions are in positive polar form, meaning a unit quaternion with a positive
  * scalar component.
  */
-/**
- * @param start Start of the interpolation.
- * @param end End of the interpolation.
- */
 @ExperimentalUnsignedTypes
 @ExperimentalStdlibApi
-class Slerp(
-    start: Quaternion,
-    end: Quaternion
-) : (Double)->Quaternion {
+class Slerp
+    /**
+     * @param start Start of the interpolation.
+     * @param end End of the interpolation.
+     */
+    (start: Quaternion,
+    end: Quaternion) : DoubleFunction<Quaternion> {
     /** Start of the interpolation.  */
     private val start: Quaternion
 
@@ -74,7 +79,7 @@ class Slerp(
     /**
      * Linear interpolation, used when the quaternions are too closely aligned.
      */
-    private inner class Linear : (Double)->Quaternion {
+    private inner class Linear : DoubleFunction<Quaternion> {
         /** {@inheritDoc}  */
         override fun invoke(t: Double): Quaternion {
             val f = 1 - t
@@ -96,7 +101,7 @@ class Slerp(
         /**
          * @param dot Dot product of the start and end quaternions.
          */
-        internal constructor(dot: Double) : (Double)->Quaternion {
+        internal constructor(dot: Double) : DoubleFunction<Quaternion> {
         /** Angle of rotation.  */
         private val theta: Double
 
@@ -145,6 +150,6 @@ class Slerp(
         } else {
             this.end = e
         }
-        algo = if (dot > MAX_DOT_THRESHOLD) Linear() else Spherical(dot)
+        algo = if (dot > MAX_DOT_THRESHOLD) { d -> Linear().invoke(d) } else { d -> Spherical(dot).invoke(d) }
     }
 }

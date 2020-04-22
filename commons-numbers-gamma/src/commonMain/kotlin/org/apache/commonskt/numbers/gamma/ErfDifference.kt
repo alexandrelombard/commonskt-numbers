@@ -44,6 +44,8 @@ object ErfDifference {
      * @return [Erf.value(x2) - Erf.value(x1)][Erf.value].
      * @throws ArithmeticException if the algorithm fails to converge.
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun value(
         x1: Double,
         x2: Double

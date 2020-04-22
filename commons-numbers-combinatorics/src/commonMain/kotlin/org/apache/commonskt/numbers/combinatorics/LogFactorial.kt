@@ -17,7 +17,7 @@
 
 package org.apache.commonskt.numbers.combinatorics
 
-import org.apache.commons.numbers.gamma.LogGamma
+import org.apache.commonskt.numbers.gamma.LogGamma
 import kotlin.math.ln
 
 /**

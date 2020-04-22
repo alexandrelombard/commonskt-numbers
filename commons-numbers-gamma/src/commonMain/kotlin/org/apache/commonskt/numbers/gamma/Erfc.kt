@@ -47,6 +47,8 @@ object Erfc {
      *
      * @see RegularizedGamma.Q.value
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun value(x: Double): Double {
         if (abs(x) > EXTREME_VALUE_BOUND) {
             return (if (x > 0) 0 else 2).toDouble()

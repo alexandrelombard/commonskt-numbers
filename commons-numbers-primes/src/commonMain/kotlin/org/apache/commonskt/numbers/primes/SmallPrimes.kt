@@ -14,16 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.commonskt.numbers.primes
+@file:Suppress("NAME_SHADOWING")
 
+package org.apache.commonskt.numbers.primes
 import org.apache.commonskt.math.BigInteger
+
 import kotlin.math.sqrt
 
 /**
  * Utility methods to work on primes within the `int` range.
  */
-@ExperimentalUnsignedTypes
-@ExperimentalStdlibApi
 internal object SmallPrimes {
     /**
      * The first 512 prime numbers.
@@ -206,6 +206,8 @@ internal object SmallPrimes {
      * @param n Number to test: an odd integer  3.
      * @return true if `n` is prime, false if it is definitely composite.
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun millerRabinPrimeTest(n: Int): Boolean {
         val nMinus1 = n - 1
         val s: Int = nMinus1.countTrailingZeroBits()
