@@ -14,21 +14,25 @@ repositories {
 
 allprojects {
     group = "org.apache.commonskt.numbers"
-    version = "1.0.0"
+    version = "1.0.1"
 
     repositories {
         jcenter()
     }
 }
 
+dependencies {
+    subprojects.forEach {
+        archives(it)
+    }
+}
+
 val localProperties = Properties()
 localProperties.load(project.rootProject.file("local.properties").inputStream())
 
-if(localProperties.getProperty("bintray.user") == null) {
-    throw IllegalStateException()
-}
-
 subprojects {
+    val subproject = this
+
     apply(plugin = "maven-publish")
     apply(plugin = "com.jfrog.bintray")
 
@@ -44,9 +48,8 @@ subprojects {
         setPublications(*pubs)
         pkg(delegateClosureOf<com.jfrog.bintray.gradle.BintrayExtension.PackageConfig> {
             repo = "maven"
-            name = "commonskt-numbers"
-            desc = project.description
-            githubRepo = "https://github.com/alexandrelombard/commonskt-numbers"
+            name = subproject.name
+            desc = subproject.description
             websiteUrl = "https://github.com/alexandrelombard/commonskt-numbers"
             vcsUrl = "https://github.com/alexandrelombard/commonskt-numbers.git"
             version.vcsTag = "v${project.version}"
