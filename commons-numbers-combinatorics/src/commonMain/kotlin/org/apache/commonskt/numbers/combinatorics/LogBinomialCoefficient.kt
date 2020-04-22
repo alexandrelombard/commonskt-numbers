@@ -38,6 +38,7 @@ object LogBinomialCoefficient {
      * @throws IllegalArgumentException if `n < 0`.
      * @throws IllegalArgumentException if `k > n`.
      */
+    @ExperimentalUnsignedTypes
     fun value(n: Int, k: Int): Double {
         checkBinomial(n, k)
         if (n == k ||

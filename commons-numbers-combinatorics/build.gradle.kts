@@ -1,6 +1,9 @@
+import java.util.Properties
+
 plugins {
     kotlin("multiplatform")
     id("maven-publish")
+    id("com.jfrog.bintray")
 }
 
 group = "org.apache.commonskt.numbers"
@@ -21,7 +24,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-metadata:1.0-SNAPSHOT")
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-metadata:1.0.1")
                 implementation(project(":commons-numbers-core"))
                 implementation(project(":commons-numbers-gamma"))
             }
@@ -29,14 +32,40 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-jvm:1.0-SNAPSHOT")
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-jvm:1.0.1")
             }
         }
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-js:1.0-SNAPSHOT")
+                implementation("org.apache.commonskt:kotlin-stdlib-extension-js:1.0.1")
             }
         }
     }
+}
+
+val localProperties = Properties()
+localProperties.load(project.rootProject.file("local.properties").inputStream())
+
+bintray {
+    user = localProperties.getProperty("bintray.user")
+    key = localProperties.getProperty("bintray.apikey")
+    dryRun = false
+    publish = true
+    override = true
+    val pubs = publishing.publications
+        .map { it.name }
+        .filter { it != "kotlinMultiplatform" }
+        .toTypedArray()
+    setPublications(*pubs)
+    pkg(delegateClosureOf<com.jfrog.bintray.gradle.BintrayExtension.PackageConfig> {
+        repo = "maven"
+        name = project.name
+        desc = project.description
+        websiteUrl = "https://github.com/alexandrelombard/commonskt-numbers"
+        vcsUrl = "https://github.com/alexandrelombard/commonskt-numbers.git"
+        version.vcsTag = "v${project.version}"
+        setLicenses("Apache-2.0")
+        publicDownloadNumbers = true
+    })
 }
