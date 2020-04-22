@@ -2,8 +2,7 @@ plugins {
     kotlin("multiplatform")
 }
 
-group = "org.apache.commonskt"
-version = "1.0-SNAPSHOT"
+group = "org.apache.commonskt.numbers"
 
 repositories {
     mavenLocal()

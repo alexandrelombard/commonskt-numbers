@@ -3,8 +3,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "org.apache.commonskt"
-version = "1.0-SNAPSHOT"
+group = "org.apache.commonskt.numbers"
 
 repositories {
     mavenLocal()
@@ -14,6 +13,8 @@ repositories {
 kotlin {
     jvm()
     js()
+    mingwX64()
+    linuxX64()
 
     sourceSets {
         val commonMain by getting {
