@@ -4,7 +4,7 @@ plugins {
     id("base")
     kotlin("multiplatform") version "1.3.72"
     id("maven-publish")
-    id("com.jfrog.bintray") version "1.8.5"
+    id("com.jfrog.bintray") version "1.8.3"
 }
 
 repositories {
@@ -24,9 +24,11 @@ allprojects {
 val localProperties = Properties()
 localProperties.load(project.rootProject.file("local.properties").inputStream())
 
-subprojects {
-    val subproject = this@subprojects
+if(localProperties.getProperty("bintray.user") == null) {
+    throw IllegalStateException()
+}
 
+subprojects {
     apply(plugin = "maven-publish")
     apply(plugin = "com.jfrog.bintray")
 
@@ -42,7 +44,7 @@ subprojects {
         setPublications(*pubs)
         pkg(delegateClosureOf<com.jfrog.bintray.gradle.BintrayExtension.PackageConfig> {
             repo = "maven"
-            name = subproject.name
+            name = "commonskt-numbers"
             desc = project.description
             githubRepo = "https://github.com/alexandrelombard/commonskt-numbers"
             websiteUrl = "https://github.com/alexandrelombard/commonskt-numbers"
