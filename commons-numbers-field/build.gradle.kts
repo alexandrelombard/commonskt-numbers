@@ -3,6 +3,7 @@ plugins {
 }
 
 group = "org.apache.commonskt.numbers"
+description = "Port of org.apache.commons.numbers.field"
 
 repositories {
     mavenCentral()

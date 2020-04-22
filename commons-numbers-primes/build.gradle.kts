@@ -3,6 +3,8 @@ plugins {
 }
 
 group = "org.apache.commonskt.numbers"
+description = "Port of org.apache.commons.numbers.primes"
+
 repositories {
     mavenLocal()
     mavenCentral()

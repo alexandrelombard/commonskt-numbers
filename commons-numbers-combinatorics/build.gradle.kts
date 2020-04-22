@@ -4,6 +4,7 @@ plugins {
 }
 
 group = "org.apache.commonskt.numbers"
+description = "Port of org.apache.commons.numbers.combinatorics"
 
 repositories {
     mavenLocal()
