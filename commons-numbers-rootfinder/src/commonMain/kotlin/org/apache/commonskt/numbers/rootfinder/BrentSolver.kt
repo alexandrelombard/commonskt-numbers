@@ -95,12 +95,23 @@ class BrentSolver
         max: Double
     ): Double {
         if (min > max) {
-            throw SolverException(SolverException.TOO_LARGE(min, max))
+            throw SolverException(
+                SolverException.TOO_LARGE(
+                    min,
+                    max
+                )
+            )
         }
         if (initial < min ||
             initial > max
         ) {
-            throw SolverException(SolverException.OUT_OF_RANGE(initial, min, max))
+            throw SolverException(
+                SolverException.OUT_OF_RANGE(
+                    initial,
+                    min,
+                    max
+                )
+            )
         }
 
         // Return the initial guess if it is good enough.
@@ -130,7 +141,14 @@ class BrentSolver
         if (yInitial * yMax < 0) {
             return brent(func, initial, max, yInitial, yMax)
         }
-        throw SolverException(SolverException.BRACKETING(min, yMin, max, yMax))
+        throw SolverException(
+            SolverException.BRACKETING(
+                min,
+                yMin,
+                max,
+                yMax
+            )
+        )
     }
 
     /**
