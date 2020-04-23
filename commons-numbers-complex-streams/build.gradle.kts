@@ -6,13 +6,9 @@ plugins {
     id("com.jfrog.bintray")
 }
 
-description = "Port of org.apache.commons.numbers.fraction"
-
-val kotlinStdlibExtensionGroup = "com.github.alexandrelombard.commonskt"
-val kotlinStdlibExtensionVersion = "1.0.3"
+description = "Port of org.apache.commons.numbers.angle"
 
 repositories {
-    mavenLocal()
     mavenCentral()
 }
 
@@ -26,8 +22,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-metadata:$kotlinStdlibExtensionVersion")
-                implementation(project(":commons-numbers-core"))
+                implementation(project(":commons-numbers-complex"))
             }
         }
         val commonTest by getting {
@@ -39,13 +34,11 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
-                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-jvm:$kotlinStdlibExtensionVersion")
             }
         }
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
-                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-js:$kotlinStdlibExtensionVersion")
             }
         }
     }

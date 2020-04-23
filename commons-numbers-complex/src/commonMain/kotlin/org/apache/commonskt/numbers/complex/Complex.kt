@@ -63,8 +63,6 @@ import kotlin.math.*
  * ISO/IEC 9899 - Programming languages - C](http://www.open-std.org/JTC1/SC22/WG14/www/standards)
  */
 @Suppress("unused")
-@ExperimentalUnsignedTypes
-@ExperimentalStdlibApi
 class Complex
     /**
      * Private default constructor.
@@ -551,6 +549,8 @@ class Complex
      * @return `this / divisor`.
      * @see [Complex Division](http://mathworld.wolfram.com/ComplexDivision.html)
      */
+    @ExperimentalUnsignedTypes
+    @ExperimentalStdlibApi
     fun divide(divisor: Complex): Complex {
         return divide(real, imaginary, divisor.real, divisor.imaginary)
     }
@@ -835,6 +835,7 @@ class Complex
      * @see .abs
      * @see .arg
      */
+    @ExperimentalUnsignedTypes
     private fun log(
         log: (Double)->Double,
         logOfeOver2: Double,
@@ -1831,7 +1832,6 @@ class Complex
             .toString()
     }
 
-    @ExperimentalStdlibApi
     companion object {
         /**
          * A complex number representing \( i \), the square root of \( -1 \).
@@ -2425,6 +2425,8 @@ class Complex
          *
          * @see .divide
          */
+        @ExperimentalUnsignedTypes
+        @ExperimentalStdlibApi
         private fun divide(re1: Double, im1: Double, re2: Double, im2: Double): Complex {
             var a = re1
             var b = im1
@@ -3701,6 +3703,8 @@ class Complex
          * @see scalb
          * @see [ilogb](http://www.cplusplus.com/reference/cmath/ilogb/)
          */
+        @ExperimentalUnsignedTypes
+        @ExperimentalStdlibApi
         private fun getScale(a: Double, b: Double): Int {
             // Only interested in the exponent and mantissa so remove the sign bit
             val x: Long = a.toRawBits() and UNSIGN_MASK

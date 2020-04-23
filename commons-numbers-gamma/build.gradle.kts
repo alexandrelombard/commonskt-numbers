@@ -6,7 +6,6 @@ plugins {
     id("com.jfrog.bintray")
 }
 
-group = "org.apache.commonskt.numbers"
 description = "Port of org.apache.commons.numbers.gamma"
 
 repositories {

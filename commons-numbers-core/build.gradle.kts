@@ -6,8 +6,10 @@ plugins {
     id("com.jfrog.bintray")
 }
 
-group = "org.apache.commonskt.numbers"
 description = "Port of org.apache.commons.numbers.core"
+
+val kotlinStdlibExtensionGroup = "com.github.alexandrelombard.commonskt"
+val kotlinStdlibExtensionVersion = "1.0.3"
 
 repositories {
     mavenLocal()
@@ -24,7 +26,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-metadata:1.0.1")
+                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-metadata:$kotlinStdlibExtensionVersion")
             }
         }
         val commonTest by getting {
@@ -36,23 +38,23 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-jvm:1.0.1")
+                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-jvm:$kotlinStdlibExtensionVersion")
             }
         }
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-js:1.0.1")
+                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-js:$kotlinStdlibExtensionVersion")
             }
         }
         val mingwX64Main by getting {
             dependencies {
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-mingwx64:1.0.1")
+                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-mingwx64:$kotlinStdlibExtensionVersion")
             }
         }
         val linuxX64Main by getting {
             dependencies {
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-linuxx64:1.0.1")
+                implementation("$kotlinStdlibExtensionGroup:kotlin-stdlib-extension-linuxx64:$kotlinStdlibExtensionVersion")
             }
         }
     }
