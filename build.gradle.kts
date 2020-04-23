@@ -13,7 +13,7 @@ repositories {
 }
 
 allprojects {
-    group = "org.apache.commonskt.numbers"
+    group = "com.github.alexandrelombard.commonskt.numbers"
     version = "1.0.3-SNAPSHOT"
 
     repositories {
