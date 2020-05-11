@@ -22,8 +22,8 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
-import org.apache.commonskt.math.BigInteger
-import org.apache.commonskt.math.multiplyExact
+import com.github.alexandrelombard.commonskt.math.BigInteger
+import com.github.alexandrelombard.commonskt.math.multiplyExact
 
 /**
  * Some useful, arithmetics related, additions to the built-in functions in

@@ -16,8 +16,8 @@
  */
 package com.github.alexandrelombard.commonskt.numbers.core
 
-import org.apache.commonskt.math.BigDecimal
-import org.apache.commonskt.math.RoundingMode
+import com.github.alexandrelombard.commonskt.math.BigDecimal
+import com.github.alexandrelombard.commonskt.math.RoundingMode
 import kotlin.math.abs
 import kotlin.math.max
 
