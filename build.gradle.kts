@@ -14,7 +14,7 @@ repositories {
 
 allprojects {
     group = "com.github.alexandrelombard.commonskt.numbers"
-    version = "1.0.3-SNAPSHOT"
+    version = "1.0.3"
 
     repositories {
         jcenter()
