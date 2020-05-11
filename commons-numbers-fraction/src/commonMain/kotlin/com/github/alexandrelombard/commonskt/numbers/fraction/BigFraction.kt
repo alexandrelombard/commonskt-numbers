@@ -16,9 +16,9 @@
  */
 package com.github.alexandrelombard.commonskt.numbers.fraction
 
-import org.apache.commonskt.math.BigDecimal
-import org.apache.commonskt.math.BigInteger
-import org.apache.commonskt.math.RoundingMode
+import com.github.alexandrelombard.commonskt.math.BigDecimal
+import com.github.alexandrelombard.commonskt.math.BigInteger
+import com.github.alexandrelombard.commonskt.math.RoundingMode
 import com.github.alexandrelombard.commonskt.numbers.core.NativeOperators
 import kotlin.math.abs
 import kotlin.math.floor

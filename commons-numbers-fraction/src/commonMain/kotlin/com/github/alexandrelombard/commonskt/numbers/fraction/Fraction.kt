@@ -16,8 +16,8 @@
  */
 package com.github.alexandrelombard.commonskt.numbers.fraction
 
-import org.apache.commonskt.math.multiplyExact
-import org.apache.commonskt.math.toIntExact
+import com.github.alexandrelombard.commonskt.math.multiplyExact
+import com.github.alexandrelombard.commonskt.math.toIntExact
 import com.github.alexandrelombard.commonskt.numbers.core.ArithmeticUtils.gcd
 import com.github.alexandrelombard.commonskt.numbers.core.ArithmeticUtils.pow
 import com.github.alexandrelombard.commonskt.numbers.core.NativeOperators
