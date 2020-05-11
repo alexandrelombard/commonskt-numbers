@@ -16,9 +16,9 @@
  */
 package com.github.alexandrelombard.commonskt.numbers.complex
 
-import org.apache.commonskt.lang.DoubleConsts
-import org.apache.commonskt.math.exponent
-import org.apache.commonskt.math.scalb
+import com.github.alexandrelombard.commonskt.lang.DoubleConsts
+import com.github.alexandrelombard.commonskt.math.exponent
+import com.github.alexandrelombard.commonskt.math.scalb
 import kotlin.math.*
 
 /**

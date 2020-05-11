@@ -17,7 +17,8 @@
 @file:Suppress("NAME_SHADOWING")
 
 package com.github.alexandrelombard.commonskt.numbers.primes
-import org.apache.commonskt.math.BigInteger
+
+import com.github.alexandrelombard.commonskt.math.BigInteger
 
 import kotlin.math.sqrt
 

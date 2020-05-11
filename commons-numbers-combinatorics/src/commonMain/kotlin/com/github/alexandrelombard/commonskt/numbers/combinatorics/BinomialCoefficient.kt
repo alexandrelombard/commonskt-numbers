@@ -16,7 +16,7 @@
  */
 package com.github.alexandrelombard.commonskt.numbers.combinatorics
 
-import org.apache.commonskt.math.multiplyExact
+import com.github.alexandrelombard.commonskt.math.multiplyExact
 import com.github.alexandrelombard.commonskt.numbers.core.ArithmeticUtils
 
 /**
