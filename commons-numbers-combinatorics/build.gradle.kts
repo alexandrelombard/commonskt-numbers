@@ -23,7 +23,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-metadata:1.0.1")
+                implementation("com.github.alexandrelombard.commonskt:kotlin-stdlib-extension-metadata:1.0.3")
                 implementation(project(":commons-numbers-core"))
                 implementation(project(":commons-numbers-gamma"))
             }
@@ -31,13 +31,13 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(kotlin("stdlib"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-jvm:1.0.1")
+                implementation("com.github.alexandrelombard.commonskt:kotlin-stdlib-extension-jvm:1.0.3")
             }
         }
         val jsMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-js"))
-                implementation("org.apache.commonskt:kotlin-stdlib-extension-js:1.0.1")
+                implementation("com.github.alexandrelombard.commonskt:kotlin-stdlib-extension-js:1.0.3")
             }
         }
     }
